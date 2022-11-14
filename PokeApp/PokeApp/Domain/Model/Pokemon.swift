@@ -10,11 +10,11 @@ import Foundation
 struct Pokemon {
   var name: String
   var imageUrl: URL
-  var weight: Int
-  var height: Int
+  var weight: Int32
+  var height: Int32
   var types: [String]
   
-  init(name: String, imageUrl: URL, weight: Int, height: Int, types: [String]) {
+  init(name: String, imageUrl: URL, weight: Int32, height: Int32, types: [String]) {
     self.name = name
     self.imageUrl = imageUrl
     self.weight = weight
