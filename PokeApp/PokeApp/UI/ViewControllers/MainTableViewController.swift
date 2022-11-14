@@ -17,17 +17,15 @@ class MainTableViewController: UITableViewController {
   
   // -MARK: - Properties -
   
-  lazy var mainTableView: MainTableView = AppDelegate.DIContainer.resolve(MainTableView.self)!
+  lazy var mainTableView: MainTableView = MainTableView()
 
   
   // -MARK: - Dependencies -
   
-  private let getFeedGroupsUseCase: GetFeedGroupsUseCase =
-  AppDelegate.DIContainer.resolve(GetFeedGroupsUseCase.self)!
-  private let markAsReadedUseCase: MarkAsReadedUseCase =
-  AppDelegate.DIContainer.resolve(MarkAsReadedUseCase.self)!
-  private let markAsReadedOldUseCase: MarkAsReadedOldUseCase =
-  AppDelegate.DIContainer.resolve(MarkAsReadedOldUseCase.self)!
+  private let getPokemonsUseCase: GetPokemonsUseCase =
+  AppDelegate.DIContainer.resolve(GetPokemonsUseCase.self)!
+  private let addPokemonsUseCase: AddPokemonsUseCase =
+  AppDelegate.DIContainer.resolve(AddPokemonsUseCase.self)!
   
   
   // -MARK: - LifeCycle -
@@ -35,8 +33,20 @@ class MainTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setTableView()
   }
   
   
-  // MARK: - Navigation
+  // MARK: - Navigation -
+  
+  
+  // MARK: - Funcitons -
+  
+  func setTableView() {
+    mainTableView.tableView = tableView
+    
+    tableView.dataSource = mainTableView.dataSource
+    tableView.delegate = mainTableView
+    
+  }
 }

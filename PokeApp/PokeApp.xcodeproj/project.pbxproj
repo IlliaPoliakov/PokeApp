@@ -36,6 +36,7 @@
 		F2F5436A2922EE2700EBB299 /* GetPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F543692922EE2700EBB299 /* GetPokemonsUseCase.swift */; };
 		F2F5436D2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2F5436B2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld */; };
 		F2F5436F2922F20C00EBB299 /* AddPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5436E2922F20C00EBB299 /* AddPokemonsUseCase.swift */; };
+		F2F543712922FF4900EBB299 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F543702922FF4900EBB299 /* NetworkDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		F2F543692922EE2700EBB299 /* GetPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPokemonsUseCase.swift; sourceTree = "<group>"; };
 		F2F5436C2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokemonCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		F2F5436E2922F20C00EBB299 /* AddPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPokemonsUseCase.swift; sourceTree = "<group>"; };
+		F2F543702922FF4900EBB299 /* NetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		FA709651D2EAA04F7468A9BB /* Pods-PokeApp-PokeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeApp-PokeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeApp-PokeAppUITests/Pods-PokeApp-PokeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -330,6 +332,7 @@
 		F2A161CC2922B1A400260573 /* NetworkDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				F2F543702922FF4900EBB299 /* NetworkDataSource.swift */,
 			);
 			path = NetworkDataSource;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2F5436D2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld in Sources */,
+				F2F543712922FF4900EBB299 /* NetworkDataSource.swift in Sources */,
 				F2A161D12922B33500260573 /* DIContainer.swift in Sources */,
 				F2F543622922EA3900EBB299 /* PokemonRepository.swift in Sources */,
 				F2F5436A2922EE2700EBB299 /* GetPokemonsUseCase.swift in Sources */,
