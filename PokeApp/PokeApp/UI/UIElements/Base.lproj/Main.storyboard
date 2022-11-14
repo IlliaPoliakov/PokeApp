@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Your Feeds-->
+        <!--Pokemons-->
         <scene sceneID="K8d-0p-tta">
             <objects>
                 <tableViewController id="6bb-mc-YNO" customClass="MainTableViewController" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="72" id="wla-Vn-ecw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="72" id="wla-Vn-ecw" customClass="MainTableViewCell" customModule="PokeApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="430" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wla-Vn-ecw" id="Ysr-6u-JRC">
@@ -52,7 +52,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="All Your Feeds" id="sEN-9R-f4Y">
+                    <navigationItem key="navigationItem" title="Pokemons" id="sEN-9R-f4Y">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="clock.arrow.circlepath" catalog="system" style="done" id="49t-Ht-ZwZ">
                             <color key="tintColor" name="mainAccentColor"/>
                             <connections>
@@ -87,7 +87,7 @@
         <!--Item Descriptin View Conrtoller-->
         <scene sceneID="cKt-wE-4id">
             <objects>
-                <viewController id="AKe-zW-OMt" customClass="ItemDescriptinViewConrtoller" customModule="Meedly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AKe-zW-OMt" customClass="ItemDescriptinViewConrtoller" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sHE-dK-6hc">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
