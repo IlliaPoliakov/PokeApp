@@ -25,6 +25,8 @@
 		F2A161D32922B38A00260573 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A161D22922B38A00260573 /* Extensions.swift */; };
 		F2A161D52922BD9500260573 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A161D42922BD9500260573 /* Constants.swift */; };
 		F2F5434C2922D85300EBB299 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5434B2922D85300EBB299 /* Pokemon.swift */; };
+		F2F5434F2922DBB600EBB299 /* PokemonEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5434D2922DBB600EBB299 /* PokemonEntity+CoreDataClass.swift */; };
+		F2F543502922DBB600EBB299 /* PokemonEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5434E2922DBB600EBB299 /* PokemonEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		F2A161D22922B38A00260573 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2A161D42922BD9500260573 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F2F5434B2922D85300EBB299 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		F2F5434D2922DBB600EBB299 /* PokemonEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PokemonEntity+CoreDataClass.swift"; path = "PokeApp/Data/Model/Pokemon/PokemonEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		F2F5434E2922DBB600EBB299 /* PokemonEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PokemonEntity+CoreDataProperties.swift"; path = "PokeApp/Data/Model/Pokemon/PokemonEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FA709651D2EAA04F7468A9BB /* Pods-PokeApp-PokeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeApp-PokeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeApp-PokeAppUITests/Pods-PokeApp-PokeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,8 +215,8 @@
 		F2A161C12922B0A100260573 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				F2A161CA2922B19100260573 /* Repository */,
 				F2A161C92922B18D00260573 /* Model */,
+				F2A161CA2922B19100260573 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -276,6 +280,7 @@
 		F2A161C92922B18D00260573 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F2F543512922DBBD00EBB299 /* Pokemon */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,10 +312,19 @@
 		F2A161CD2922B1B800260573 /* DataBaseDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				F2A1617029227AED00260573 /* PokeApp.xcdatamodeld */,
 				F2A161CE2922B23E00260573 /* CoreDataStack.swift */,
+				F2A1617029227AED00260573 /* PokeApp.xcdatamodeld */,
 			);
 			path = DataBaseDataSource;
+			sourceTree = "<group>";
+		};
+		F2F543512922DBBD00EBB299 /* Pokemon */ = {
+			isa = PBXGroup;
+			children = (
+				F2F5434D2922DBB600EBB299 /* PokemonEntity+CoreDataClass.swift */,
+				F2F5434E2922DBB600EBB299 /* PokemonEntity+CoreDataProperties.swift */,
+			);
+			path = Pokemon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -558,8 +572,10 @@
 				F2A161D32922B38A00260573 /* Extensions.swift in Sources */,
 				F2F5434C2922D85300EBB299 /* Pokemon.swift in Sources */,
 				F2A161CF2922B23E00260573 /* CoreDataStack.swift in Sources */,
+				F2F543502922DBB600EBB299 /* PokemonEntity+CoreDataProperties.swift in Sources */,
 				F2A161A729229D6500260573 /* MainTableViewCell.swift in Sources */,
 				F2A1616A29227AED00260573 /* SceneDelegate.swift in Sources */,
+				F2F5434F2922DBB600EBB299 /* PokemonEntity+CoreDataClass.swift in Sources */,
 				F2A161D52922BD9500260573 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
