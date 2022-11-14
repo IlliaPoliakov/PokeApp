@@ -27,7 +27,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="399.66666666666669" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bya-ir-qzP">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bya-ir-qzP">
                                             <rect key="frame" x="35" y="16" width="341.66666666666669" height="40"/>
                                             <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="35"/>
                                             <color key="textColor" name="mainAccentColor"/>
@@ -42,6 +42,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="nameLabel" destination="bya-ir-qzP" id="JKX-xu-8Bd"/>
                                     <segue destination="AKe-zW-OMt" kind="presentation" id="Uwv-jB-KUL"/>
                                 </connections>
                             </tableViewCell>
@@ -61,6 +62,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="updateButtton" destination="49t-Ht-ZwZ" id="Qvn-3o-OUS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eoo-Gw-93m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="379.38931297709922" y="-57.74647887323944"/>
         </scene>
-        <!--Item Descriptin View Conrtoller-->
+        <!--Description View Controller-->
         <scene sceneID="cKt-wE-4id">
             <objects>
-                <viewController id="AKe-zW-OMt" customClass="ItemDescriptinViewConrtoller" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AKe-zW-OMt" customClass="DescriptionViewController" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sHE-dK-6hc">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,8 +183,11 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="JHd-CN-LyM"/>
                     <connections>
-                        <outlet property="imageView" destination="Ib9-q3-4Bq" id="rGs-Ix-oR1"/>
-                        <outlet property="titleLabel" destination="pIh-Aa-BBe" id="1sY-pr-yx0"/>
+                        <outlet property="heightLabel" destination="Znr-gg-9ie" id="ubU-A5-vuO"/>
+                        <outlet property="imageView" destination="Ib9-q3-4Bq" id="q1d-xN-fbw"/>
+                        <outlet property="nameLabel" destination="pIh-Aa-BBe" id="bEO-B7-BHi"/>
+                        <outlet property="typesLabel" destination="b1f-f2-aDj" id="XwE-0y-gKm"/>
+                        <outlet property="weightLabel" destination="O4A-aB-9J6" id="P4r-0B-pXI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbN-5O-Vcb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

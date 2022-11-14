@@ -9,14 +9,14 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
   
-  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var nameLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
   }
   
-  func bind(withFeedItem item: FeedItem) {
-    self.titleLabel =
+  func bind(withPokemon pokemon: Pokemon) {
+    nameLabel.text = pokemon.name
   }
 
 }

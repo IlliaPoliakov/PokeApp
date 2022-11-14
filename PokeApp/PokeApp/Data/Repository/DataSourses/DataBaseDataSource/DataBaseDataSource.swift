@@ -18,7 +18,6 @@ class DataBaseDataSource {
   // -MARK: - Functions -
   
   func loadData() -> [PokemonEntity]? {
-    
     guard var pokemons = try? coreDataStack.managedContext.fetch(PokemonEntity.fetchRequest())
     else {
       return nil
