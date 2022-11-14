@@ -34,6 +34,8 @@
 		F2F543662922EB0A00EBB299 /* DescripitonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F543652922EB0A00EBB299 /* DescripitonViewController.swift */; };
 		F2F543682922ED7600EBB299 /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F543672922ED7600EBB299 /* MainTableView.swift */; };
 		F2F5436A2922EE2700EBB299 /* GetPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F543692922EE2700EBB299 /* GetPokemonsUseCase.swift */; };
+		F2F5436D2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2F5436B2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld */; };
+		F2F5436F2922F20C00EBB299 /* AddPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5436E2922F20C00EBB299 /* AddPokemonsUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		F2F543652922EB0A00EBB299 /* DescripitonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescripitonViewController.swift; sourceTree = "<group>"; };
 		F2F543672922ED7600EBB299 /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		F2F543692922EE2700EBB299 /* GetPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPokemonsUseCase.swift; sourceTree = "<group>"; };
+		F2F5436C2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokemonCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		F2F5436E2922F20C00EBB299 /* AddPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPokemonsUseCase.swift; sourceTree = "<group>"; };
 		FA709651D2EAA04F7468A9BB /* Pods-PokeApp-PokeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeApp-PokeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeApp-PokeAppUITests/Pods-PokeApp-PokeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				F2F543692922EE2700EBB299 /* GetPokemonsUseCase.swift */,
+				F2F5436E2922F20C00EBB299 /* AddPokemonsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				F2F543522922DE8100EBB299 /* DataBaseDataSource.swift */,
 				F2A161CE2922B23E00260573 /* CoreDataStack.swift */,
 				F2F543542922E13C00EBB299 /* PokemonDataModel.xcdatamodeld */,
+				F2F5436B2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld */,
 			);
 			path = DataBaseDataSource;
 			sourceTree = "<group>";
@@ -587,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F5436D2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld in Sources */,
 				F2A161D12922B33500260573 /* DIContainer.swift in Sources */,
 				F2F543622922EA3900EBB299 /* PokemonRepository.swift in Sources */,
 				F2F5436A2922EE2700EBB299 /* GetPokemonsUseCase.swift in Sources */,
@@ -599,6 +606,7 @@
 				F2F543532922DE8100EBB299 /* DataBaseDataSource.swift in Sources */,
 				F2A161A729229D6500260573 /* MainTableViewCell.swift in Sources */,
 				F2F5435D2922E24200EBB299 /* PokemonEntity+CoreDataClass.swift in Sources */,
+				F2F5436F2922F20C00EBB299 /* AddPokemonsUseCase.swift in Sources */,
 				F2F543682922ED7600EBB299 /* MainTableView.swift in Sources */,
 				F2A1616A29227AED00260573 /* SceneDelegate.swift in Sources */,
 				F2F543562922E13C00EBB299 /* PokemonDataModel.xcdatamodeld in Sources */,
@@ -955,6 +963,16 @@
 			);
 			currentVersion = F2F543552922E13C00EBB299 /* Model.xcdatamodel */;
 			path = PokemonDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		F2F5436B2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F2F5436C2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = F2F5436C2922F0C200EBB299 /* PokemonCoreDataModel.xcdatamodel */;
+			path = PokemonCoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

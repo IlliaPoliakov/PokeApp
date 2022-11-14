@@ -1,10 +1,13 @@
-//  GetPokemonsUseCase.swift
+//
+//  AddPokemonsUseCase.swift
 //  PokeApp
 //
 //  Created by Illia Poliakov on 15.11.22.
 //
 
-class GetPokemonsUseCase {
+import Foundation
+
+class AddPokemonsUseCase {
   private let repo: PokemonRepository
   
   init(repo: PokemonRepository) {
@@ -12,6 +15,6 @@ class GetPokemonsUseCase {
   }
   
   func execute(_ completion: @escaping ([Pokemon]?) -> Void) {
-    completion(repo.getPokemons())
+    completion(repo.addPokemons())
   }
 }

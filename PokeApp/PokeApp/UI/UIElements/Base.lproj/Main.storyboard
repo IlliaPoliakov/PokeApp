@@ -54,7 +54,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pokemons" id="sEN-9R-f4Y">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="clock.arrow.circlepath" catalog="system" style="done" id="49t-Ht-ZwZ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus.square" catalog="system" style="done" id="49t-Ht-ZwZ">
                             <color key="tintColor" name="mainAccentColor"/>
                             <connections>
                                 <action selector="update:" destination="6bb-mc-YNO" id="JKD-MV-L2M"/>
@@ -196,7 +196,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clock.arrow.circlepath" catalog="system" width="128" height="112"/>
+        <image name="plus.square" catalog="system" width="128" height="114"/>
         <namedColor name="mainAccentColor">
             <color red="0.41176470588235292" green="0.68627450980392157" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
