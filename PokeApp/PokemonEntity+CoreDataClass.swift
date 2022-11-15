@@ -11,21 +11,13 @@ import CoreData
 
 @objc(PokemonEntity)
 public class PokemonEntity: NSManagedObject {
-  static func convertToDomain(pokemonEntitis entities: [PokemonEntity]) -> [Pokemon]? {
-    guard !entities.isEmpty
-    else {
-      return nil
-    }
-    
-    var domainPokemons = [Pokemon]()
-    
-    entities.forEach { entity in
-      domainPokemons.append(Pokemon(name: entity.name,
-                                    imageUrl: entity.imageUrl,
-                                    weight: entity.weight,
-                                    height: entity.height,
-                                    types: entity.types))
-    }
-    return domainPokemons
+  static func convertToDomain(pokemonEntity entity: PokemonEntity) -> Pokemon {
+
+    return Pokemon(name: entity.name,
+                   imageUrl: entity.imageUrl,
+                   weight: entity.weight,
+                   height: entity.height,
+                   types: entity.types,
+                   isLovel: entity.isLovely)
   }
 }

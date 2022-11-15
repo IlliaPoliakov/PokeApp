@@ -3,6 +3,7 @@
     <device id="retina6_72" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -96,8 +97,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-Aa-BBe">
-                                <rect key="frame" x="15" y="74" width="400" height="35.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-Aa-BBe">
+                                <rect key="frame" x="15" y="74" width="320" height="35.333333333333343"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="35"/>
                                 <color key="textColor" name="mainAccentColor"/>
                                 <nil key="highlightedColor"/>
@@ -159,20 +160,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtw-vj-xnD">
+                                <rect key="frame" x="350" y="66.666666666666671" width="65" height="50.333333333333329"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" buttonSize="large">
+                                    <imageReference key="image" image="heart.square" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" name="mainAccentColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="setAsLovelybutton:" destination="AKe-zW-OMt" eventType="touchUpInside" id="izJ-1S-csn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h0X-jx-wAc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="k1L-wM-9DY" firstAttribute="top" secondItem="Ib9-q3-4Bq" secondAttribute="bottom" constant="15" id="4EG-MM-hVU"/>
                             <constraint firstItem="b1f-f2-aDj" firstAttribute="leading" secondItem="h0X-jx-wAc" secondAttribute="leading" constant="15" id="6bW-e8-lgX"/>
+                            <constraint firstItem="h0X-jx-wAc" firstAttribute="trailing" secondItem="Vtw-vj-xnD" secondAttribute="trailing" constant="15" id="80L-cE-DXH"/>
                             <constraint firstItem="Ib9-q3-4Bq" firstAttribute="top" secondItem="pIh-Aa-BBe" secondAttribute="bottom" constant="20" id="DjF-6K-0gI"/>
                             <constraint firstItem="npb-07-g7F" firstAttribute="top" secondItem="k1L-wM-9DY" secondAttribute="bottom" constant="20" id="Fh6-ld-AEG"/>
+                            <constraint firstItem="Vtw-vj-xnD" firstAttribute="centerY" secondItem="pIh-Aa-BBe" secondAttribute="centerY" id="GfN-lx-GBQ"/>
                             <constraint firstItem="k1L-wM-9DY" firstAttribute="leading" secondItem="h0X-jx-wAc" secondAttribute="leading" constant="15" id="JGW-uJ-txE"/>
                             <constraint firstItem="b1f-f2-aDj" firstAttribute="top" secondItem="npb-07-g7F" secondAttribute="bottom" constant="15" id="JxJ-hd-Hly"/>
                             <constraint firstItem="h0X-jx-wAc" firstAttribute="trailing" secondItem="Ib9-q3-4Bq" secondAttribute="trailing" constant="15" id="a7j-4V-8Iq"/>
+                            <constraint firstItem="Vtw-vj-xnD" firstAttribute="leading" secondItem="pIh-Aa-BBe" secondAttribute="trailing" constant="15" id="ew9-EQ-scY"/>
                             <constraint firstItem="pIh-Aa-BBe" firstAttribute="leading" secondItem="h0X-jx-wAc" secondAttribute="leading" constant="15" id="ipm-GY-l68"/>
                             <constraint firstItem="h0X-jx-wAc" firstAttribute="trailing" secondItem="b1f-f2-aDj" secondAttribute="trailing" constant="15" id="jFx-AL-Xdq"/>
-                            <constraint firstItem="h0X-jx-wAc" firstAttribute="trailing" secondItem="pIh-Aa-BBe" secondAttribute="trailing" constant="15" id="keo-Sc-Yyn"/>
                             <constraint firstItem="pIh-Aa-BBe" firstAttribute="top" secondItem="h0X-jx-wAc" secondAttribute="top" constant="15" id="nDy-Pf-llp"/>
                             <constraint firstItem="Ib9-q3-4Bq" firstAttribute="leading" secondItem="h0X-jx-wAc" secondAttribute="leading" constant="15" id="oiD-Rs-ZRs"/>
                             <constraint firstItem="h0X-jx-wAc" firstAttribute="trailing" secondItem="k1L-wM-9DY" secondAttribute="trailing" constant="15" id="pAM-0R-lxD"/>
@@ -196,6 +210,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart.square" catalog="system" width="128" height="114"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <namedColor name="mainAccentColor">
             <color red="0.41176470588235292" green="0.68627450980392157" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -8,7 +8,7 @@
 import CoreData
 
 class CoreDataStack {
-  static let shared = CoreDataStack(modelName: "PokemonCoreDataModel")
+  static let shared = CoreDataStack(modelName: "PokemonDataModel")
   
   private let modelName: String
   

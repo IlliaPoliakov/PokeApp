@@ -17,45 +17,51 @@ class DataBaseDataSource {
   
   // -MARK: - Functions -
   
-  func loadData() -> [PokemonGroupEntity]? {
-    guard var pokemonGroups = try? coreDataStack.managedContext.fetch(PokemonGroupEntity.fetchRequest())
+  func loadData() -> [PokemonEntity]? {
+    guard var pokemons = try? coreDataStack.managedContext.fetch(PokemonEntity.fetchRequest())
     else {
       return nil
     }
     
-    if pokemonGroups.isEmpty {
+    if pokemons.isEmpty {
       return nil
     }
     
-    return pokemonGroups
+    return pokemons
+  }
+  
+  func getUrl() -> PrevNextUrlEntity? {
+    guard var prevNext = try? coreDataStack.managedContext.fetch(PrevNextUrlEntity.fetchRequest())
+    else {
+      return nil
+    }
+    
+    if prevNext.isEmpty {
+      return nil
+    }
+    
+    return prevNext.first
   }
   
   func saveNewPokemon(withPokemonName name: String,
-                      withDescriptionUrl descriptionUrl: URL,
-                      withPokemonGroup group: PokemonGroupEntity) -> PokemonEntity {
+                      withDescriptionUrl descriptionUrl: URL) -> PokemonEntity {
     let newPokemon = PokemonEntity.init(context: coreDataStack.managedContext)
     
     newPokemon.name = name
     newPokemon.descriptionUrl = descriptionUrl
-    newPokemon.parentGroup = group
-    
-    group.addToPokemons(newPokemon)
     
     coreDataStack.saveContext()
     
     return newPokemon
   }
   
-  func saveNewGroup(withNextUrl nextUrl: URL?,
-                    withPrevUrl prevUrl: URL?) -> PokemonGroupEntity {
-    let newGroup = PokemonGroupEntity.init(context: coreDataStack.managedContext)
+  func saveNewPrevNextUrl(withPreviousUrl prevUrl: URL?, withNextUrl nextUrl: URL?) {
+    let newPrevNext = PrevNextUrlEntity.init(context: coreDataStack.managedContext)
     
-    newGroup.nextUrl = nextUrl
-    newGroup.previousUrl = prevUrl
+    newPrevNext.previousUrl = prevUrl
+    newPrevNext.previousUrl = nextUrl
     
     coreDataStack.saveContext()
-    
-    return newGroup
   }
   
   func updatePokemonData(forPokemonName pokemonName: String,
@@ -77,6 +83,23 @@ class DataBaseDataSource {
     pokemon.first!.height = height
     pokemon.first!.weight = weight
     pokemon.first!.types = types
+    
+    coreDataStack.saveContext()
+  }
+  
+  func setAsLovely(withPokemonName pokemonName: String) {
+    let predicate = NSPredicate(format: "%K == %@",
+                                #keyPath(PokemonEntity.name), "\(pokemonName)")
+    let fetchRequest = NSFetchRequest<PokemonEntity>(entityName: "PokemonEntity")
+    fetchRequest.resultType = .managedObjectResultType
+    fetchRequest.predicate = predicate
+    
+    guard let pokemon = try? coreDataStack.managedContext.fetch(fetchRequest)
+    else {
+      return
+    }
+    
+    pokemon.first?.isLovely = true
     
     coreDataStack.saveContext()
   }

@@ -19,6 +19,8 @@ class DescriptionViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   
+  @IBAction func setAsLovelybutton(_ sender: Any) {
+  }
   
   // -MARK: - Properties -
   

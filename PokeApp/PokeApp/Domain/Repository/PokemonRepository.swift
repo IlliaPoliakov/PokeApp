@@ -9,5 +9,6 @@ import Foundation
 
 protocol PokemonRepository {
   func getPokemons() -> [Pokemon]?
-  func addPokemons() -> [Pokemon]?
+  func addPokemons(_ completion: @escaping ([Pokemon]?) -> Void)
+  func setAsLovely(withPokemonName pokemonName: String)
 }
