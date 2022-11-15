@@ -140,4 +140,21 @@ class DataBaseDataSource {
     
     coreDataStack.saveContext()
   }
+  
+  func deletePokemon(withPokemonName pokemonName: String) {
+    let predicate = NSPredicate(format: "%K == %@",
+                                #keyPath(PokemonEntity.name), "\(pokemonName)")
+    let fetchRequest = NSFetchRequest<PokemonEntity>(entityName: "PokemonEntity")
+    fetchRequest.resultType = .managedObjectResultType
+    fetchRequest.predicate = predicate
+    
+    guard let pokemon = try? coreDataStack.managedContext.fetch(fetchRequest)
+    else {
+      return
+    }
+    
+    coreDataStack.managedContext.delete(pokemon.first!)
+    
+    coreDataStack.saveContext()
+  }
 }

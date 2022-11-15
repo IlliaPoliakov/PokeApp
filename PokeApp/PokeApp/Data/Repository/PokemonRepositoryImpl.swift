@@ -141,5 +141,9 @@ class PokemonRepositoryImpl: PokemonRepository {
     localDataSource.setAsLovely(withPokemonName: pokemonName)
   }
   
+  func deletePokemon(withPokemonName pokemonName : String) {
+    localDataSource.deletePokemon(withPokemonName: pokemonName)
+  }
+  
   
 }

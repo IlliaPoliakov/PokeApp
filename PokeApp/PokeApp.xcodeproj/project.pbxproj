@@ -10,6 +10,7 @@
 		6E762FB20FB5C6068A621AD8 /* Pods_PokeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E784301047981AE00C0A7227 /* Pods_PokeAppTests.framework */; };
 		B01C531368F3EA0C7F2D727C /* Pods_PokeApp_PokeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0DFDDCF63C0986C23BD557 /* Pods_PokeApp_PokeAppUITests.framework */; };
 		E0B4214CE40813EFB84CDB1D /* Pods_PokeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DD43D84A2FD10ED1218F44 /* Pods_PokeApp.framework */; };
+		F2315EF22923B94000D3487C /* deletePokemonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2315EF12923B94000D3487C /* deletePokemonUseCase.swift */; };
 		F2A1616829227AED00260573 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A1616729227AED00260573 /* AppDelegate.swift */; };
 		F2A1616A29227AED00260573 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A1616929227AED00260573 /* SceneDelegate.swift */; };
 		F2A1616F29227AED00260573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A1616D29227AED00260573 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		C26BB4CA6C2C839478404264 /* Pods-PokeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PokeAppTests/Pods-PokeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6DD43D84A2FD10ED1218F44 /* Pods_PokeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E784301047981AE00C0A7227 /* Pods_PokeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2315EF12923B94000D3487C /* deletePokemonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deletePokemonUseCase.swift; sourceTree = "<group>"; };
 		F2A1616429227AEC00260573 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A1616729227AED00260573 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2A1616929227AED00260573 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				F2F5436E2922F20C00EBB299 /* AddPokemonsUseCase.swift */,
 				F2A8D8CB2923138900D8A6CF /* SetAsLovelyUseCase.swift */,
 				F2A8D8DF2923887600D8A6CF /* SetAsUnlovelyUseCase.swift */,
+				F2315EF12923B94000D3487C /* deletePokemonUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				F2F543682922ED7600EBB299 /* MainTableView.swift in Sources */,
 				F2A1616A29227AED00260573 /* SceneDelegate.swift in Sources */,
 				F2F543662922EB0A00EBB299 /* DescripitonViewController.swift in Sources */,
+				F2315EF22923B94000D3487C /* deletePokemonUseCase.swift in Sources */,
 				F2F543642922EAEF00EBB299 /* MainTableViewController.swift in Sources */,
 				F2A8D8CC2923138900D8A6CF /* SetAsLovelyUseCase.swift in Sources */,
 				F2A8D8D72923628C00D8A6CF /* PrevNextUrlEntity+CoreDataProperties.swift in Sources */,

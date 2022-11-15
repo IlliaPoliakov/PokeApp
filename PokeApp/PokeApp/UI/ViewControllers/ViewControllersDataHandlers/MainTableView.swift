@@ -21,6 +21,12 @@ enum SortState {
 
 class MainTableView: NSObject, UITableViewDelegate {
   
+  // -MARK: - Dependencies -
+  
+  private let deletePokemonsUseCase: DeletePokemonUseCase =
+  AppDelegate.DIContainer.resolve(DeletePokemonUseCase.self)!
+  
+  
   // -MARK: - Properties -
   
   var tableView: UITableView?
@@ -130,5 +136,29 @@ class MainTableView: NSObject, UITableViewDelegate {
     }
     
     pokemons![index!].isLovely = !pokemons![index!].isLovely
+  }
+  
+  func tableView(_ tableView: UITableView,
+                 contextMenuConfigurationForRowAt indexPath: IndexPath,
+                 point: CGPoint) -> UIContextMenuConfiguration? {
+    let trashImage = UIImage(systemName: "trash")!
+      .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+    
+    let pokemon = self.pokemons![indexPath.row]
+    
+    return UIContextMenuConfiguration(
+      identifier: nil,
+      previewProvider: nil) { _ in
+        let deleteAction = UIAction(
+          title: "Delete Pokemon",
+          image: trashImage) { _ in
+            self.deletePokemonsUseCase.execute(withPokemonName: pokemon.name)
+            self.pokemons!.remove(at: indexPath.row)
+
+            self.configureSnapshot()
+          }
+        
+        return UIMenu(title: "", image: nil, children: [deleteAction])
+      }
   }
 }
