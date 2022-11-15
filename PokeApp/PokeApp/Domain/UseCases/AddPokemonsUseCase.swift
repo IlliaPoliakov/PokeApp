@@ -14,7 +14,7 @@ class AddPokemonsUseCase {
     self.repo = repo
   }
   
-  func execute(_ completion: @escaping ([Pokemon]?) -> Void) {
+  func execute(_ completion: @escaping ([Pokemon]?, String?) -> Void) {
     repo.addPokemons(completion)
   }
 }

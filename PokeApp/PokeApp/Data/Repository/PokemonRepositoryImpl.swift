@@ -8,7 +8,7 @@
 import Foundation
 
 class PokemonRepositoryImpl: PokemonRepository {
-  
+
   // -MARK: - Properties -
   
   private let localDataSource: DataBaseDataSource
@@ -40,35 +40,20 @@ class PokemonRepositoryImpl: PokemonRepository {
     return modelPokemons
   }
   
-  func addPokemons(_ completion: @escaping ([Pokemon]?, String?) -> Void) {
-    let prevNextUrl =  localDataSource.getUrl()
+
+  
+  func parsePokemonGroup(withData data: Data) -> JsonPokemonsGroup? {
     
-    guard prevNextUrl?.nextUrl != nil
-    else {
-      DispatchQueue.main.async {
-        completion(nil, "No Pokemons Yet")
-      }
-      return
-    }
-    remoteDataSource.downloadData(withUrl: prevNextUrl!.nextUrl!) { data, error in
-      guard data != nil
-      else {
-        DispatchQueue.main.async {
-          completion(nil, error)
-        }
-      }
-      
-    }
+    return try? JSONDecoder().decode(JsonPokemonsGroup.self, from: data)
   }
   
-  func parse(withData data: Data) {
-      let decoder = JSONDecoder()
-
-      let decodedPokemons = try? decoder.decode(Petitions.self, from: data)
+  func parsePokemonDescription(withData data: Data) -> DescriptionJsonPokemon? {
+    
+    return try? JSONDecoder().decode(DescriptionJsonPokemon.self, from: data)
   }
   
   func setAsLovely(withPokemonName pokemonName: String) {
-    <#code#>
+    localDataSource.setAsLovely(withPokemonName: pokemonName)
   }
   
   

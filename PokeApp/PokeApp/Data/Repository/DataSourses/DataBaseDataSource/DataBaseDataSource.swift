@@ -30,7 +30,7 @@ class DataBaseDataSource {
     return pokemons
   }
   
-  func getUrl() -> PrevNextUrlEntity? {
+  func getPrevNextUrl() -> PrevNextUrlEntity? {
     guard var prevNext = try? coreDataStack.managedContext.fetch(PrevNextUrlEntity.fetchRequest())
     else {
       return nil
@@ -55,13 +55,15 @@ class DataBaseDataSource {
     return newPokemon
   }
   
-  func saveNewPrevNextUrl(withPreviousUrl prevUrl: URL?, withNextUrl nextUrl: URL?) {
+  func saveNewPrevNextUrl(withPreviousUrl prevUrl: URL?, withNextUrl nextUrl: URL?) -> PrevNextUrlEntity {
     let newPrevNext = PrevNextUrlEntity.init(context: coreDataStack.managedContext)
     
     newPrevNext.previousUrl = prevUrl
     newPrevNext.previousUrl = nextUrl
     
     coreDataStack.saveContext()
+    
+    return newPrevNext
   }
   
   func updatePokemonData(forPokemonName pokemonName: String,

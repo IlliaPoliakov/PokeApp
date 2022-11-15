@@ -8,22 +8,31 @@
 import Foundation
 
 struct JsonPokemonsGroup: Decodable {
-  var next: URL
-  var previous: URL
-  var results: [JsonPokemons]
+  var next: URL?
+  var previous: URL?
+  var results: [JsonPokemon]
 }
 
-struct JsonPokemons: Decodable {
+struct JsonPokemon: Decodable {
   var name: String
   var url: URL
 }
 
-struct JsonPokemonsDescription: Decodable {
+struct DescriptionJsonPokemon: Decodable {
   var height: Int32
   var weight: Int32
-  var types:
+  var types: [DescriptionJsonPokemonTypes]
+  var sprites: DescriptionJsonPokemonFrontDefault
 }
 
-struct JsonPokemonsDescriptionTypes: Decodable {
-  
+struct DescriptionJsonPokemonFrontDefault: Decodable {
+  var front_default: URL
+}
+
+struct DescriptionJsonPokemonTypes: Decodable {
+  var type: DescriptionJsonPokemonTypesType
+}
+
+struct DescriptionJsonPokemonTypesType: Decodable {
+  var name: String
 }
