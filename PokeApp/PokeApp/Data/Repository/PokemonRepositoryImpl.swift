@@ -40,10 +40,10 @@ class PokemonRepositoryImpl: PokemonRepository {
     return modelPokemons
   }
   
-  func addPokemons(_ completion: @escaping ([Pokemon]?, String?) -> Void) {
+  func addPokemons(_ completion: @escaping ([Pokemon]?, PossibleErrors?) -> Void) {
     guard Connectivity.isConnectedToInternet()
     else {
-      completion(nil, "No interner connection")
+      completion(nil, .noInternet)
       return
     }
     
@@ -57,7 +57,7 @@ class PokemonRepositoryImpl: PokemonRepository {
     guard prevNextUrl?.nextUrl != nil
     else {
       DispatchQueue.main.async {
-        completion(nil, "There is No More Pokemons")
+        completion(nil, .noMorePokemonsFromApi)
       }
       return
     }
@@ -67,7 +67,7 @@ class PokemonRepositoryImpl: PokemonRepository {
         guard data != nil
         else {
           DispatchQueue.main.async {
-            completion(nil, error)
+            completion(nil, .apiProvidingFunctionalityErrors)
           }
           return
         }

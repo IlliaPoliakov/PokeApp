@@ -12,3 +12,10 @@ struct Sizes{
   static var imageCornerRadius = 10
   static var imageBorderWidth = 2.5
 }
+
+enum PossibleErrors: String, Error {
+  case noInternet = "No Intternet Connection"
+  case serverResponse = "Wrong Server Response"
+  case noMorePokemonsFromApi = "There are All Pokemons for Now"
+  case apiProvidingFunctionalityErrors = "Undefined Error...Sorry"
+}

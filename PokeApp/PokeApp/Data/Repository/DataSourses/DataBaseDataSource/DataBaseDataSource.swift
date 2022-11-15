@@ -36,9 +36,6 @@ class DataBaseDataSource {
       return nil
     }
     
-//    coreDataStack.managedContext.delete(prevNext.first!)
-//    coreDataStack.saveContext()
-    
     if prevNext.isEmpty {
       return nil
     }

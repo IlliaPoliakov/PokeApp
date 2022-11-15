@@ -81,13 +81,19 @@ class MainTableViewController: UITableViewController {
   
   @IBAction func addButton(_ sender: Any) {
     addPokemonsUseCase.execute { newPokemons, error in
+      if error != nil {
+        let alert = UIAlertController(title: "Error Occured",
+                                      message: error!.rawValue,
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+      }
+      
       guard newPokemons != nil
       else {
         return
-      }
-      
-      if error != nil {
-        print("Error occured: \(error!)")
       }
       
       self.mainTableView.updateSnapshot(withNewPokemons: newPokemons)

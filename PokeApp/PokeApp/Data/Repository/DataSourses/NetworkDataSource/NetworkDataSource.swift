@@ -23,7 +23,7 @@ class NetworkDataSource {
   
   // -MARK: - Functions -
   
-  func downloadData(withUrl url: URL, _ completion: @escaping (Data?, String?) -> Void) {
+  func downloadData(withUrl url: URL, _ completion: @escaping (Data?, PossibleErrors?) -> Void) {
     
     let request = URLRequest(url: url)
     
@@ -32,7 +32,7 @@ class NetworkDataSource {
             (200..<300).contains((response as? HTTPURLResponse)!.statusCode)
       else {
         DispatchQueue.main.async {
-          completion(nil, error?.localizedDescription)
+          completion(nil, .serverResponse)
         }
         return
       }
