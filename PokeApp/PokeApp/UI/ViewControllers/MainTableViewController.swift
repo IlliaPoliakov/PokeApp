@@ -49,7 +49,13 @@ class MainTableViewController: UITableViewController {
         return
       }
       
-      let pokemon = mainTableView.pokemons![self.tableView.indexPathForSelectedRow!.row]
+      let pokemon: Pokemon
+      if mainTableView.sortState == .lovely {
+        pokemon = mainTableView.lovelyPokemons![self.tableView.indexPathForSelectedRow!.row]
+      }
+      else {
+        pokemon = mainTableView.pokemons![self.tableView.indexPathForSelectedRow!.row]
+      }
       destination.pokemon = pokemon
       destination.mainTableView = self.mainTableView
     }

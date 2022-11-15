@@ -13,10 +13,8 @@ class DescriptionViewController: UIViewController {
   
   // -MARK: - Dependencies -
   
-  private let setAsUnlovelyUseCase: SetAsUnlovelyUseCase =
-  AppDelegate.DIContainer.resolve(SetAsUnlovelyUseCase.self)!
-  private let setAsLovelyUseCase: SetAsLovelyUseCase =
-  AppDelegate.DIContainer.resolve(SetAsLovelyUseCase.self)!
+  private let adjustLovelyStateUseCase: AdjustLovelyStateUseCase =
+  AppDelegate.DIContainer.resolve(AdjustLovelyStateUseCase.self)!
   
   
   // -MARK: - IBOutlets -
@@ -73,21 +71,16 @@ class DescriptionViewController: UIViewController {
   
   @IBAction func setAsLovelybutton(_ sender: UIButton) {
     if pokemon!.isLovely {
-      setAsUnlovelyUseCase.execute(withPokemonName: pokemon!.name)
-      mainTableView!.adjustLovelyState(forPokemon: pokemon!)
-      
       pokemon!.isLovely = false
-      
       lovelyButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
     else {
-      setAsLovelyUseCase.execute(withPokemonName: pokemon!.name)
-      mainTableView!.adjustLovelyState(forPokemon: pokemon!)
-
       pokemon!.isLovely = true
-      
       lovelyButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
+    
+    mainTableView!.adjustLovelyState(forPokemon: pokemon!)
+    adjustLovelyStateUseCase.execute(withPokemonName: pokemon!.name)
   }
   
 

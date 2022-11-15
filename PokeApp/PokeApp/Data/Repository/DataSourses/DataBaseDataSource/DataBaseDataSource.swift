@@ -30,6 +30,9 @@ class DataBaseDataSource {
     return pokemons
   }
   
+  // in a nutshell, I didn't find better way to store next/previous pages urls, mb via KVO,
+  // but, probably in perspectiv app empowerment it may be best approach
+  
   func getPrevNextUrl() -> PrevNextUrlEntity? {
     guard let prevNext = try? coreDataStack.managedContext.fetch(PrevNextUrlEntity.fetchRequest())
     else {
@@ -41,18 +44,6 @@ class DataBaseDataSource {
     }
     
     return prevNext.first
-  }
-  
-  func saveNewPokemon(withPokemonName name: String,
-                      withDescriptionUrl descriptionUrl: URL) -> PokemonEntity {
-    let newPokemon = PokemonEntity.init(context: coreDataStack.managedContext)
-    
-    newPokemon.name = name
-    newPokemon.descriptionUrl = descriptionUrl
-    
-    coreDataStack.saveContext()
-    
-    return newPokemon
   }
   
   func saveNewPokemon(withPokemonName name: String,
@@ -84,11 +75,7 @@ class DataBaseDataSource {
     return newPrevNext
   }
   
-  func updatePokemonData(forPokemonName pokemonName: String,
-                         withImageUrl imageUrl: URL,
-                         withWeight weight: Int32,
-                         withHeight height: Int32,
-                         withTypes types: [String]) {
+  func adjustLovelyState(withPokemonName pokemonName: String) {
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(PokemonEntity.name), "\(pokemonName)")
     let fetchRequest = NSFetchRequest<PokemonEntity>(entityName: "PokemonEntity")
@@ -100,43 +87,7 @@ class DataBaseDataSource {
       return
     }
     
-    pokemon.first!.height = height
-    pokemon.first!.weight = weight
-    pokemon.first!.types = types
-    
-    coreDataStack.saveContext()
-  }
-  
-  func setAsLovely(withPokemonName pokemonName: String) {
-    let predicate = NSPredicate(format: "%K == %@",
-                                #keyPath(PokemonEntity.name), "\(pokemonName)")
-    let fetchRequest = NSFetchRequest<PokemonEntity>(entityName: "PokemonEntity")
-    fetchRequest.resultType = .managedObjectResultType
-    fetchRequest.predicate = predicate
-    
-    guard let pokemon = try? coreDataStack.managedContext.fetch(fetchRequest)
-    else {
-      return
-    }
-    
-    pokemon.first?.isLovely = true
-    
-    coreDataStack.saveContext()
-  }
-  
-  func setAsUnlovely(withPokemonName pokemonName: String) {
-    let predicate = NSPredicate(format: "%K == %@",
-                                #keyPath(PokemonEntity.name), "\(pokemonName)")
-    let fetchRequest = NSFetchRequest<PokemonEntity>(entityName: "PokemonEntity")
-    fetchRequest.resultType = .managedObjectResultType
-    fetchRequest.predicate = predicate
-    
-    guard let pokemon = try? coreDataStack.managedContext.fetch(fetchRequest)
-    else {
-      return
-    }
-    
-    pokemon.first?.isLovely = false
+    pokemon.first?.isLovely = !pokemon.first!.isLovely
     
     coreDataStack.saveContext()
   }

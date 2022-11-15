@@ -1,5 +1,5 @@
 //
-//  SetAsLovelyPokemonUseCase.swift
+//  SetAsUnlovelyUseCase.swift
 //  PokeApp
 //
 //  Created by Illia Poliakov on 15.11.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SetAsLovelyUseCase {
+class AdjustLovelyStateUseCase {
   private let repo: PokemonRepository
   
   init(repo: PokemonRepository) {
@@ -15,7 +15,8 @@ class SetAsLovelyUseCase {
   }
   
   func execute(withPokemonName pokemonName: String) {
-    repo.setAsLovely(withPokemonName: pokemonName)
+    repo.adjustLovelyState(withPokemonName: pokemonName)
   }
 }
+
 

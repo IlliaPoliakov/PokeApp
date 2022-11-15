@@ -10,7 +10,6 @@ import Foundation
 protocol PokemonRepository {
   func getPokemons() -> [Pokemon]?
   func addPokemons(_ completion: @escaping ([Pokemon]?, PossibleErrors?) -> Void)
-  func setAsLovely(withPokemonName pokemonName: String)
-  func setAsUnlovely(withPokemonName pokemonName: String)
+  func adjustLovelyState(withPokemonName pokemonName: String)
   func deletePokemon(withPokemonName pokemonName : String)
 }

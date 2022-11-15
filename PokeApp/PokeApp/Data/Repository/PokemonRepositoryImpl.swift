@@ -23,6 +23,9 @@ class PokemonRepositoryImpl: PokemonRepository {
   
   // -MARK: - UseCase funcs -
   
+  
+  //just load data from localDS
+  
   func getPokemons() -> [Pokemon]? {
     let pokemons = localDataSource.loadData()
     
@@ -39,6 +42,8 @@ class PokemonRepositoryImpl: PokemonRepository {
     
     return modelPokemons
   }
+  
+  //fetch next API page, parse and return next 20 pokemons
   
   func addPokemons(_ completion: @escaping ([Pokemon]?, PossibleErrors?) -> Void) {
     guard Connectivity.isConnectedToInternet()
@@ -76,6 +81,9 @@ class PokemonRepositoryImpl: PokemonRepository {
         let modelPokemons: [Pokemon]? = Pokemon.convertFromJsonPokemons(
           withJsonPokemons: jsonPokemonGroup!.results)
         
+        // I thought perform 2 callbacs, first with partial data (below), than with full, but smt went wrong,
+        // mb fix later.
+        
 //        DispatchQueue.main.async {
 //          completion(modelPokemons, nil)
 //        }
@@ -96,7 +104,7 @@ class PokemonRepositoryImpl: PokemonRepository {
             guard descriptionData != nil
             else {
               downloadGroup.leave()
-              return //mistake can occure
+              return
             }
             
             let descriptionJsonPokemon = self.parsePokemonDescription(withData: descriptionData!)
@@ -124,21 +132,15 @@ class PokemonRepositoryImpl: PokemonRepository {
   }
   
   func parsePokemonGroup(withData data: Data) -> JsonPokemonsGroup? {
-    
     return try? JSONDecoder().decode(JsonPokemonsGroup.self, from: data)
   }
   
   func parsePokemonDescription(withData data: Data) -> DescriptionJsonPokemon? {
-    
     return try? JSONDecoder().decode(DescriptionJsonPokemon.self, from: data)
   }
   
-  func setAsLovely(withPokemonName pokemonName: String) {
-    localDataSource.setAsLovely(withPokemonName: pokemonName)
-  }
-  
-  func setAsUnlovely(withPokemonName pokemonName: String) {
-    localDataSource.setAsLovely(withPokemonName: pokemonName)
+  func adjustLovelyState(withPokemonName pokemonName: String) {
+    localDataSource.adjustLovelyState(withPokemonName: pokemonName)
   }
   
   func deletePokemon(withPokemonName pokemonName : String) {

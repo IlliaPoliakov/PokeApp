@@ -31,11 +31,7 @@ class MainTableView: NSObject, UITableViewDelegate {
   
   var tableView: UITableView?
   var pokemons: [Pokemon]?
-  var lovelyPokemons: [Pokemon]? {
-    get {
-      return pokemons?.filter { $0.isLovely == true }
-    }
-  }
+  var lovelyPokemons: [Pokemon]?
   var sortState: SortState = .non
   
   lazy var dataSource: UITableViewDiffableDataSource<Section, Pokemon> =  UITableViewDiffableDataSource<Section, Pokemon> (tableView: tableView!) {
@@ -48,7 +44,7 @@ class MainTableView: NSObject, UITableViewDelegate {
     
     let pokemon: Pokemon
     
-    switch self.sortState {
+    switch self .sortState {
     case .lovely:
       pokemon = self.lovelyPokemons![indexPath.row]
     default:
@@ -118,7 +114,11 @@ class MainTableView: NSObject, UITableViewDelegate {
       self.pokemons = pokemons!.sorted {
         $0.name > $1.name
       }
-    
+      
+    case .lovely:
+      lovelyPokemons = pokemons?.filter {
+        $0.isLovely == true
+      }
     default:
       break
     }
