@@ -105,6 +105,12 @@ class PokemonRepositoryImpl: PokemonRepository {
               .convertFromDescriptionJsonPokemon(withJsonPokemon: descriptionJsonPokemon!,
                                                  withPokemon: pokemon)
             expendedModelPokemons.append(parsedPokemon)
+            self.localDataSource.saveNewPokemon(withPokemonName: parsedPokemon.name,
+                                                withDescriptionUrl: parsedPokemon.descriptionUrl,
+                                                withHeight: parsedPokemon.height!,
+                                                withWeight: parsedPokemon.weight!,
+                                                withImageurl: parsedPokemon.imageUrl!,
+                                                withTypes: parsedPokemon.types!)
             
             downloadGroup.leave()
           }
@@ -112,10 +118,6 @@ class PokemonRepositoryImpl: PokemonRepository {
         
         downloadGroup.notify(queue: .main) {
           completion(expendedModelPokemons, nil)
-        }
-        
-        expendedModelPokemons.forEach { pokemon in
-          self.localDataSource.saveNewPokemon(withPokemonName: <#T##String#>, withDescriptionUrl: <#T##URL#>)
         }
       }
     }
