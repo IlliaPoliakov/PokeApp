@@ -18,6 +18,7 @@ public class PokemonEntity: NSManagedObject {
                    weight: entity.weight,
                    height: entity.height,
                    types: entity.types,
-                   isLovel: entity.isLovely)
+                   descriptionUrl: entity.descriptionUrl,
+                   isLovely: entity.isLovely)
   }
 }

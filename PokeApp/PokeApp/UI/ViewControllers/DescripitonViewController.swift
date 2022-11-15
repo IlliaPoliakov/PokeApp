@@ -11,6 +11,14 @@ import PINRemoteImage
 
 class DescriptionViewController: UIViewController {
   
+  // -MARK: - Dependencies -
+  
+  private let setAsUnlovelyUseCase: SetAsUnlovelyUseCase =
+  AppDelegate.DIContainer.resolve(SetAsUnlovelyUseCase.self)!
+  private let setAsLovelyUseCase: SetAsLovelyUseCase =
+  AppDelegate.DIContainer.resolve(SetAsLovelyUseCase.self)!
+  
+  
   // -MARK: - IBOutlets -
   
   @IBOutlet weak var typesLabel: UILabel!
@@ -19,8 +27,6 @@ class DescriptionViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   
-  @IBAction func setAsLovelybutton(_ sender: Any) {
-  }
   
   // -MARK: - Properties -
   
@@ -33,14 +39,14 @@ class DescriptionViewController: UIViewController {
     super.viewDidLoad()
     
     var types: String = ""
-    pokemon!.types.forEach { type in
+    pokemon!.types!.forEach { type in
       types += type
       types += " "
     }
     typesLabel.text = types
     
-    heightLabel.text = String(pokemon!.height)
-    weightLabel.text = String(pokemon!.weight)
+    heightLabel.text = String(pokemon!.height!)
+    weightLabel.text = String(pokemon!.weight!)
     
     imageView.pin_setImage(from: pokemon!.imageUrl)
     imageView.layer.cornerRadius = 10
@@ -50,6 +56,20 @@ class DescriptionViewController: UIViewController {
     imageView.layer.borderColor = UIColor(named: "mainColor")!.cgColor
     
     nameLabel.text = pokemon!.name
+  }
+  
+  
+  // -MARK: - IBOutlets -
+  
+  @IBAction func setAsLovelybutton(_ sender: UIButton) {
+    if pokemon!.isLovely {
+      setAsUnlovelyUseCase.execute(withPokemonName: pokemon!.name)
+      sender.imageView!.image = UIImage(systemName: "heart")
+    }
+    else {
+      setAsLovelyUseCase.execute(withPokemonName: pokemon!.name)
+      sender.imageView!.image = UIImage(systemName: "heart.fill")
+    }
   }
   
 

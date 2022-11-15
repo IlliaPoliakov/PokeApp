@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 
 class MainTableViewController: UITableViewController {
-  
-  // MARK: - IBOutlets -
-
-  @IBOutlet weak var updateButtton: UIBarButtonItem!
 
   
   // -MARK: - Properties -
@@ -34,11 +30,28 @@ class MainTableViewController: UITableViewController {
     super.viewDidLoad()
     
     setTableView()
+    
+    setSortButton()
+    
+    getPokemonsUseCase.execute { pokemons in
+      self.mainTableView.pokemons = pokemons
+      self.mainTableView.configureSnapshot()
+    }
   }
   
   
   // MARK: - Navigation -
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "pokemonDescriptionSegue" {
+      guard let destination = segue.destination as? DescriptionViewController
+      else {
+        return
+      }
+      
+      destination.pokemon = mainTableView.pokemons![self.tableView.indexPathForSelectedRow!.row]
+    }
+  }
   
   // MARK: - Funcitons -
   
@@ -59,9 +72,30 @@ class MainTableViewController: UITableViewController {
     let barButtonItem: UIBarButtonItem = UIBarButtonItem()
     barButtonItem.customView = button
     
-    self.navigationItem.leftBarButtonItems!.insert(barButtonItem, at: 0)
+    self.navigationItem.setRightBarButton(barButtonItem, animated: true)
   }
+  
+  // MARK: - IBActions -
+  
+  @IBAction func addButton(_ sender: Any) {
+    addPokemonsUseCase.execute { newPokemons, error in
+      guard newPokemons != nil
+      else {
+        return
+      }
+      
+      if error != nil {
+        print("Error occured: \(error!)")
+      }
+      
+      self.mainTableView.updateSnapshot(withNewPokemons: newPokemons)
+    }
+  }
+  
+  
 }
+
+// MARK: - Extensions -
 
 extension MainTableViewController: UIContextMenuInteractionDelegate {
   func contextMenuInteraction(_ interaction: UIContextMenuInteraction,
@@ -98,7 +132,7 @@ extension MainTableViewController: UIContextMenuInteractionDelegate {
         self.mainTableView.sortState = .alphabetical
         self.mainTableView.updatePresentation()
         
-        self.title = "Alphabetical Flow"
+        self.title = "Alphabetical"
       }
   }
   
@@ -108,7 +142,7 @@ extension MainTableViewController: UIContextMenuInteractionDelegate {
       .withTintColor(UIColor(named: "mainColor")!, renderingMode: .alwaysOriginal)
     
     return UIAction(
-      title: "Oppsite Alphabetical",
+      title: "Opposite Alphabetical",
       image: alphaImage,
       identifier: nil,
       attributes: alphaAttributes) { _ in
@@ -130,7 +164,7 @@ extension MainTableViewController: UIContextMenuInteractionDelegate {
       .withTintColor(UIColor(named: "mainColor")!, renderingMode: .alwaysOriginal)
     
     return UIAction(
-      title: "Oppsite Alphabetical",
+      title: "Lovely",
       image: alphaImage,
       identifier: nil,
       attributes: alphaAttributes) { _ in

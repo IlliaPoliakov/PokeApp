@@ -35,5 +35,11 @@ class DependencyInjectionContainer {
     DependencyInjectionContainer.shared.register(AddPokemonsUseCase.self) { resolver in
       AddPokemonsUseCase(repo: resolver.resolve(PokemonRepository.self)!)
     }
+    DependencyInjectionContainer.shared.register(SetAsLovelyUseCase.self) { resolver in
+      SetAsLovelyUseCase(repo: resolver.resolve(PokemonRepository.self)!)
+    }
+    DependencyInjectionContainer.shared.register(SetAsUnlovelyUseCase.self) { resolver in
+      SetAsUnlovelyUseCase(repo: resolver.resolve(PokemonRepository.self)!)
+    }
   }
 }

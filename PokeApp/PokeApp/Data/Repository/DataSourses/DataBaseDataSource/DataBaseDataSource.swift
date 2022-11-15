@@ -18,7 +18,7 @@ class DataBaseDataSource {
   // -MARK: - Functions -
   
   func loadData() -> [PokemonEntity]? {
-    guard var pokemons = try? coreDataStack.managedContext.fetch(PokemonEntity.fetchRequest())
+    guard let pokemons = try? coreDataStack.managedContext.fetch(PokemonEntity.fetchRequest())
     else {
       return nil
     }
@@ -102,6 +102,23 @@ class DataBaseDataSource {
     }
     
     pokemon.first?.isLovely = true
+    
+    coreDataStack.saveContext()
+  }
+  
+  func setAsUnlovely(withPokemonName pokemonName: String) {
+    let predicate = NSPredicate(format: "%K == %@",
+                                #keyPath(PokemonEntity.name), "\(pokemonName)")
+    let fetchRequest = NSFetchRequest<PokemonEntity>(entityName: "PokemonEntity")
+    fetchRequest.resultType = .managedObjectResultType
+    fetchRequest.predicate = predicate
+    
+    guard let pokemon = try? coreDataStack.managedContext.fetch(fetchRequest)
+    else {
+      return
+    }
+    
+    pokemon.first?.isLovely = false
     
     coreDataStack.saveContext()
   }

@@ -29,6 +29,7 @@ struct Pokemon: Hashable {
     self.height = height
     self.types = types
     self.isLovely = isLovely
+    self.descriptionUrl = descriptionUrl
   }
   
   static func convertFromJsonPokemons(withJsonPokemons pokemons: [JsonPokemon]?) -> [Pokemon]?{

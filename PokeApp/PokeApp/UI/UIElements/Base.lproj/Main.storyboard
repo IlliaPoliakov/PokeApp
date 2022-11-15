@@ -58,14 +58,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="plus.square" catalog="system" style="done" id="49t-Ht-ZwZ">
                             <color key="tintColor" name="mainAccentColor"/>
                             <connections>
-                                <action selector="update:" destination="6bb-mc-YNO" id="JKD-MV-L2M"/>
+                                <action selector="addButton:" destination="6bb-mc-YNO" id="bdf-bR-af9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="updateButtton" destination="49t-Ht-ZwZ" id="Qvn-3o-OUS"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eoo-Gw-93m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,7 +95,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-Aa-BBe">
-                                <rect key="frame" x="15" y="74" width="320" height="35.333333333333343"/>
+                                <rect key="frame" x="15" y="74" width="400" height="35.333333333333343"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="35"/>
                                 <color key="textColor" name="mainAccentColor"/>
                                 <nil key="highlightedColor"/>
@@ -161,10 +158,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtw-vj-xnD">
-                                <rect key="frame" x="350" y="66.666666666666671" width="65" height="50.333333333333329"/>
+                                <rect key="frame" x="348.33333333333331" y="66.666666666666671" width="66.666666666666686" height="50.333333333333329"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" buttonSize="large">
-                                    <imageReference key="image" image="heart.square" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                     <color key="baseForegroundColor" name="mainAccentColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -181,10 +178,10 @@
                             <constraint firstItem="Ib9-q3-4Bq" firstAttribute="top" secondItem="pIh-Aa-BBe" secondAttribute="bottom" constant="20" id="DjF-6K-0gI"/>
                             <constraint firstItem="npb-07-g7F" firstAttribute="top" secondItem="k1L-wM-9DY" secondAttribute="bottom" constant="20" id="Fh6-ld-AEG"/>
                             <constraint firstItem="Vtw-vj-xnD" firstAttribute="centerY" secondItem="pIh-Aa-BBe" secondAttribute="centerY" id="GfN-lx-GBQ"/>
+                            <constraint firstAttribute="trailing" secondItem="pIh-Aa-BBe" secondAttribute="trailing" constant="15" id="HdE-9M-ui9"/>
                             <constraint firstItem="k1L-wM-9DY" firstAttribute="leading" secondItem="h0X-jx-wAc" secondAttribute="leading" constant="15" id="JGW-uJ-txE"/>
                             <constraint firstItem="b1f-f2-aDj" firstAttribute="top" secondItem="npb-07-g7F" secondAttribute="bottom" constant="15" id="JxJ-hd-Hly"/>
                             <constraint firstItem="h0X-jx-wAc" firstAttribute="trailing" secondItem="Ib9-q3-4Bq" secondAttribute="trailing" constant="15" id="a7j-4V-8Iq"/>
-                            <constraint firstItem="Vtw-vj-xnD" firstAttribute="leading" secondItem="pIh-Aa-BBe" secondAttribute="trailing" constant="15" id="ew9-EQ-scY"/>
                             <constraint firstItem="pIh-Aa-BBe" firstAttribute="leading" secondItem="h0X-jx-wAc" secondAttribute="leading" constant="15" id="ipm-GY-l68"/>
                             <constraint firstItem="h0X-jx-wAc" firstAttribute="trailing" secondItem="b1f-f2-aDj" secondAttribute="trailing" constant="15" id="jFx-AL-Xdq"/>
                             <constraint firstItem="pIh-Aa-BBe" firstAttribute="top" secondItem="h0X-jx-wAc" secondAttribute="top" constant="15" id="nDy-Pf-llp"/>
@@ -210,7 +207,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart.square" catalog="system" width="128" height="114"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <namedColor name="mainAccentColor">
             <color red="0.41176470588235292" green="0.68627450980392157" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

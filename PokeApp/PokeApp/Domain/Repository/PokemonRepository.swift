@@ -11,4 +11,5 @@ protocol PokemonRepository {
   func getPokemons() -> [Pokemon]?
   func addPokemons(_ completion: @escaping ([Pokemon]?, String?) -> Void)
   func setAsLovely(withPokemonName pokemonName: String)
+  func setAsUnlovely(withPokemonName pokemonName: String)
 }

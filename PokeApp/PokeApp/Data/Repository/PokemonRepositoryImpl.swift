@@ -45,19 +45,18 @@ class PokemonRepositoryImpl: PokemonRepository {
     
     if prevNextUrl == nil {
       prevNextUrl = localDataSource.saveNewPrevNextUrl(withPreviousUrl: nil,
-                                                       withNextUrl: URL(string: "https://pokeapi.co/api/v2/pokemon"))
+                                                       withNextUrl: URL(string: "https://pokeapi.co/api/v2/pokemon")!)
     }
     
     guard prevNextUrl?.nextUrl != nil
     else {
       DispatchQueue.main.async {
-        completion(nil, "No Pokemons Yet")
+        completion(nil, "There is No More Pokemons")
       }
       return
     }
     
     DispatchQueue.global(qos: .userInitiated).async {
-      
       self.remoteDataSource.downloadData(withUrl: prevNextUrl!.nextUrl!) { data, error in
         guard data != nil
         else {
@@ -121,6 +120,10 @@ class PokemonRepositoryImpl: PokemonRepository {
   }
   
   func setAsLovely(withPokemonName pokemonName: String) {
+    localDataSource.setAsLovely(withPokemonName: pokemonName)
+  }
+  
+  func setAsUnlovely(withPokemonName pokemonName: String) {
     localDataSource.setAsLovely(withPokemonName: pokemonName)
   }
   
