@@ -31,10 +31,13 @@ class DataBaseDataSource {
   }
   
   func getPrevNextUrl() -> PrevNextUrlEntity? {
-    guard var prevNext = try? coreDataStack.managedContext.fetch(PrevNextUrlEntity.fetchRequest())
+    guard let prevNext = try? coreDataStack.managedContext.fetch(PrevNextUrlEntity.fetchRequest())
     else {
       return nil
     }
+    
+//    coreDataStack.managedContext.delete(prevNext.first!)
+//    coreDataStack.saveContext()
     
     if prevNext.isEmpty {
       return nil
@@ -59,7 +62,7 @@ class DataBaseDataSource {
     let newPrevNext = PrevNextUrlEntity.init(context: coreDataStack.managedContext)
     
     newPrevNext.previousUrl = prevUrl
-    newPrevNext.previousUrl = nextUrl
+    newPrevNext.nextUrl = nextUrl
     
     coreDataStack.saveContext()
     

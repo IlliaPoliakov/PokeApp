@@ -39,23 +39,27 @@ class DescriptionViewController: UIViewController {
     super.viewDidLoad()
     
     var types: String = ""
-    pokemon!.types!.forEach { type in
-      types += type
-      types += " "
+    if pokemon?.types != nil {
+      pokemon!.types!.forEach { type in
+        types += type
+        types += " "
+      }
     }
     typesLabel.text = types
     
-    heightLabel.text = String(pokemon!.height!)
-    weightLabel.text = String(pokemon!.weight!)
+    heightLabel.text = String(pokemon?.height ?? 0)
+    weightLabel.text = String(pokemon?.weight ?? 0)
     
-    imageView.pin_setImage(from: pokemon!.imageUrl)
+    if pokemon?.imageUrl != nil {
+      imageView.pin_setImage(from: pokemon?.imageUrl)
+    }
     imageView.layer.cornerRadius = 10
     imageView.backgroundColor = UIColor.lightGray
     imageView.layer.masksToBounds = true
     imageView.layer.borderWidth = 2.5
     imageView.layer.borderColor = UIColor(named: "mainColor")!.cgColor
     
-    nameLabel.text = pokemon!.name
+    nameLabel.text = pokemon?.name
   }
   
   

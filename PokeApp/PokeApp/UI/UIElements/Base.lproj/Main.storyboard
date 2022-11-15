@@ -21,15 +21,15 @@
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="72" id="wla-Vn-ecw" customClass="MainTableViewCell" customModule="PokeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="430" height="72"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MainTableViewCellId" rowHeight="91" id="wla-Vn-ecw" customClass="MainTableViewCell" customModule="PokeApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="430" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wla-Vn-ecw" id="Ysr-6u-JRC">
-                                    <rect key="frame" x="0.0" y="0.0" width="399.66666666666669" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="399.66666666666669" height="91"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bya-ir-qzP">
-                                            <rect key="frame" x="35" y="16" width="341.66666666666669" height="40"/>
+                                            <rect key="frame" x="35" y="16" width="341.66666666666669" height="59"/>
                                             <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="35"/>
                                             <color key="textColor" name="mainAccentColor"/>
                                             <nil key="highlightedColor"/>
@@ -43,8 +43,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="bya-ir-qzP" id="JKX-xu-8Bd"/>
-                                    <segue destination="AKe-zW-OMt" kind="presentation" id="Uwv-jB-KUL"/>
+                                    <outlet property="nameLabel" destination="bya-ir-qzP" id="duY-CV-Zhx"/>
+                                    <segue destination="AKe-zW-OMt" kind="presentation" identifier="pokemonDescriptionSegue" id="Uwv-jB-KUL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -66,7 +66,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eoo-Gw-93m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306.1068702290077" y="-57.74647887323944"/>
+            <point key="canvasLocation" x="1306.046511627907" y="-57.93991416309013"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xoy-Of-5yr">

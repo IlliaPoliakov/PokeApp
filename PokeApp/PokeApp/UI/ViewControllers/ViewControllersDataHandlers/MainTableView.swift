@@ -35,8 +35,7 @@ class MainTableView: NSObject, UITableViewDelegate {
   lazy var dataSource: UITableViewDiffableDataSource<Section, Pokemon> =  UITableViewDiffableDataSource<Section, Pokemon> (tableView: tableView!) {
     tableView, indexPath, itemIdentifier in
     
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCCustomCell")
-            as? MainTableViewCell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCellId") as? MainTableViewCell
     else {
       fatalError("Can't deque custom cell in MainVC.")
     }
@@ -119,5 +118,9 @@ class MainTableView: NSObject, UITableViewDelegate {
     }
     
     configureSnapshot()
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 }

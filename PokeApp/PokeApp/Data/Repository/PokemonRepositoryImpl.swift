@@ -41,6 +41,12 @@ class PokemonRepositoryImpl: PokemonRepository {
   }
   
   func addPokemons(_ completion: @escaping ([Pokemon]?, String?) -> Void) {
+    guard Connectivity.isConnectedToInternet()
+    else {
+      completion(nil, "No interner connection")
+      return
+    }
+    
     var prevNextUrl =  localDataSource.getPrevNextUrl()
     
     if prevNextUrl == nil {
@@ -69,42 +75,49 @@ class PokemonRepositoryImpl: PokemonRepository {
         let jsonPokemonGroup = self.parsePokemonGroup(withData: data!)
         let modelPokemons: [Pokemon]? = Pokemon.convertFromJsonPokemons(
           withJsonPokemons: jsonPokemonGroup!.results)
-        DispatchQueue.main.async {
-          completion(modelPokemons, nil)
-        }
+        
+//        DispatchQueue.main.async {
+//          completion(modelPokemons, nil)
+//        }
         
         prevNextUrl?.nextUrl = jsonPokemonGroup?.next
         prevNextUrl?.previousUrl = jsonPokemonGroup?.previous
         
-        let group = DispatchGroup()
-        
         var expendedModelPokemons = [Pokemon]()
         
+        let downloadGroup = DispatchGroup()
+        
         modelPokemons!.forEach { pokemon in
-          group.enter()
+          
+          downloadGroup.enter()
+          
           self.remoteDataSource.downloadData(withUrl: pokemon.descriptionUrl) {
             descriptionData, descriptionError in
             guard descriptionData != nil
             else {
-              group.leave()
+              downloadGroup.leave()
               return //mistake can occure
             }
             
             let descriptionJsonPokemon = self.parsePokemonDescription(withData: descriptionData!)
             
-            expendedModelPokemons.append(Pokemon
+            let parsedPokemon = Pokemon
               .convertFromDescriptionJsonPokemon(withJsonPokemon: descriptionJsonPokemon!,
-                                                 withPokemon: pokemon))
+                                                 withPokemon: pokemon)
+            expendedModelPokemons.append(parsedPokemon)
             
-            group.leave()
+            downloadGroup.leave()
           }
+          
         }
         
-        group.wait()
+  
         
-        DispatchQueue.main.async {
+        downloadGroup.notify(queue: .main) {
           completion(expendedModelPokemons, nil)
         }
+        
+        
       }
     }
   }
