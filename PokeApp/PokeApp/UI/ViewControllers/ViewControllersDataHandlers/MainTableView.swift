@@ -94,10 +94,10 @@ class MainTableView: NSObject, UITableViewDelegate {
       self.pokemons = pokemons!
     }
     
-    self.updatePresentation(withSortState: self.sortState)
+    self.updatePresentation()
   }
   
-  func updatePresentation(withSortState sortState: SortState) {
+  func updatePresentation() {
     guard pokemons != nil
     else {
       return

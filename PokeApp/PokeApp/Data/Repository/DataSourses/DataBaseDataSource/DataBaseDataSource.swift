@@ -27,17 +27,35 @@ class DataBaseDataSource {
       return nil
     }
     
-    return pokemons
+    return pokemonGroups
   }
   
-  func saveNewPokemon(withPokemonName name: String, withDescriptionUrl: URL) -> PokemonEntity {
+  func saveNewPokemon(withPokemonName name: String,
+                      withDescriptionUrl descriptionUrl: URL,
+                      withPokemonGroup group: PokemonGroupEntity) -> PokemonEntity {
     let newPokemon = PokemonEntity.init(context: coreDataStack.managedContext)
     
     newPokemon.name = name
+    newPokemon.descriptionUrl = descriptionUrl
+    newPokemon.parentGroup = group
+    
+    group.addToPokemons(newPokemon)
     
     coreDataStack.saveContext()
     
     return newPokemon
+  }
+  
+  func saveNewGroup(withNextUrl nextUrl: URL?,
+                    withPrevUrl prevUrl: URL?) -> PokemonGroupEntity {
+    let newGroup = PokemonGroupEntity.init(context: coreDataStack.managedContext)
+    
+    newGroup.nextUrl = nextUrl
+    newGroup.previousUrl = prevUrl
+    
+    coreDataStack.saveContext()
+    
+    return newGroup
   }
   
   func updatePokemonData(forPokemonName pokemonName: String,
