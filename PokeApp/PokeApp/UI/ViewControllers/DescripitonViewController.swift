@@ -55,10 +55,10 @@ class DescriptionViewController: UIViewController {
     if pokemon?.imageUrl != nil {
       imageView.pin_setImage(from: pokemon?.imageUrl)
     }
-    imageView.layer.cornerRadius = 10
+    imageView.layer.cornerRadius = CGFloat( Sizes.imageCornerRadius)
     imageView.backgroundColor = UIColor.lightGray
     imageView.layer.masksToBounds = true
-    imageView.layer.borderWidth = 2.5
+    imageView.layer.borderWidth = Sizes.imageBorderWidth
     imageView.layer.borderColor = UIColor(named: "mainColor")!.cgColor
     
     if pokemon!.isLovely {

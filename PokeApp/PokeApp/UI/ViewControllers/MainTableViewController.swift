@@ -67,7 +67,7 @@ class MainTableViewController: UITableViewController {
   func setSortButton() {
     let button: UIButton = UIButton()
     button.setImage(UIImage(systemName: "arrow.up.and.down.text.horizontal"), for: .normal)
-    button.frame = CGRectMake(0, 0, 40, 40)
+    button.frame = Sizes.barButtonSizeAndPosition
     button.tintColor = UIColor(named: "mainColor")
     let interaction = UIContextMenuInteraction(delegate: self)
     button.addInteraction(interaction)
