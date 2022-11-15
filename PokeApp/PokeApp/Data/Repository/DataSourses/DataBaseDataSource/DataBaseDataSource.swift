@@ -58,6 +58,18 @@ class DataBaseDataSource {
     return newPokemon
   }
   
+  func saveNewPokemon(withPokemonName name: String,
+                      withDescriptionUrl descriptionUrl: URL) -> PokemonEntity {
+    let newPokemon = PokemonEntity.init(context: coreDataStack.managedContext)
+    
+    newPokemon.name = name
+    newPokemon.descriptionUrl = descriptionUrl
+    
+    coreDataStack.saveContext()
+    
+    return newPokemon
+  }
+  
   func saveNewPrevNextUrl(withPreviousUrl prevUrl: URL?, withNextUrl nextUrl: URL?) -> PrevNextUrlEntity {
     let newPrevNext = PrevNextUrlEntity.init(context: coreDataStack.managedContext)
     

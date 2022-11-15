@@ -51,6 +51,7 @@ class MainTableViewController: UITableViewController {
       
       let pokemon = mainTableView.pokemons![self.tableView.indexPathForSelectedRow!.row]
       destination.pokemon = pokemon
+      destination.mainTableView = self.mainTableView
     }
   }
   

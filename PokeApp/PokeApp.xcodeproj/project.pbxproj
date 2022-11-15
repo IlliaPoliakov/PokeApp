@@ -21,7 +21,6 @@
 		F2A161A729229D6500260573 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A161A629229D6500260573 /* MainTableViewCell.swift */; };
 		F2A161CF2922B23E00260573 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A161CE2922B23E00260573 /* CoreDataStack.swift */; };
 		F2A161D12922B33500260573 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A161D02922B33500260573 /* DIContainer.swift */; };
-		F2A161D32922B38A00260573 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A161D22922B38A00260573 /* Extensions.swift */; };
 		F2A161D52922BD9500260573 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A161D42922BD9500260573 /* Constants.swift */; };
 		F2A8D8CC2923138900D8A6CF /* SetAsLovelyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A8D8CB2923138900D8A6CF /* SetAsLovelyUseCase.swift */; };
 		F2A8D8CE2923164700D8A6CF /* JsonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A8D8CD2923164700D8A6CF /* JsonStructs.swift */; };
@@ -85,7 +84,6 @@
 		F2A161A629229D6500260573 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		F2A161CE2922B23E00260573 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F2A161D02922B33500260573 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
-		F2A161D22922B38A00260573 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2A161D42922BD9500260573 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F2A8D8CB2923138900D8A6CF /* SetAsLovelyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAsLovelyUseCase.swift; sourceTree = "<group>"; };
 		F2A8D8CD2923164700D8A6CF /* JsonStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonStructs.swift; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				F2A1616729227AED00260573 /* AppDelegate.swift */,
 				F2A1616929227AED00260573 /* SceneDelegate.swift */,
 				F2A161D02922B33500260573 /* DIContainer.swift */,
-				F2A161D22922B38A00260573 /* Extensions.swift */,
 				F2A161D42922BD9500260573 /* Constants.swift */,
 				F2A1617829227AF000260573 /* Info.plist */,
 			);
@@ -626,7 +623,6 @@
 				F2A8D8DE2923670D00D8A6CF /* Conectivity.swift in Sources */,
 				F2F5436A2922EE2700EBB299 /* GetPokemonsUseCase.swift in Sources */,
 				F2A1616829227AED00260573 /* AppDelegate.swift in Sources */,
-				F2A161D32922B38A00260573 /* Extensions.swift in Sources */,
 				F2A8D8D62923628C00D8A6CF /* PrevNextUrlEntity+CoreDataClass.swift in Sources */,
 				F2F543602922EA2000EBB299 /* PokemonRepositoryImpl.swift in Sources */,
 				F2F5434C2922D85300EBB299 /* Pokemon.swift in Sources */,

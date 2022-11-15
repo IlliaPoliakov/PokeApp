@@ -123,4 +123,12 @@ class MainTableView: NSObject, UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
   }
+  
+  func adjustLovelyState(forPokemon pokemon: Pokemon) {
+    let index = pokemons!.firstIndex {
+      $0.name == pokemon.name
+    }
+    
+    pokemons![index!].isLovely = !pokemons![index!].isLovely
+  }
 }

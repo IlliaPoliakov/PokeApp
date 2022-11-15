@@ -108,16 +108,15 @@ class PokemonRepositoryImpl: PokemonRepository {
             
             downloadGroup.leave()
           }
-          
         }
-        
-  
         
         downloadGroup.notify(queue: .main) {
           completion(expendedModelPokemons, nil)
         }
         
-        
+        expendedModelPokemons.forEach { pokemon in
+          self.localDataSource.saveNewPokemon(withPokemonName: <#T##String#>, withDescriptionUrl: <#T##URL#>)
+        }
       }
     }
   }

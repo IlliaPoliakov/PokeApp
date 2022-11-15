@@ -25,12 +25,14 @@ class DescriptionViewController: UIViewController {
   @IBOutlet weak var heightLabel: UILabel!
   @IBOutlet weak var weightLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var lovelyButton: UIButton!
   @IBOutlet weak var nameLabel: UILabel!
   
   
   // -MARK: - Properties -
   
   var pokemon: Pokemon?
+  var mainTableView: MainTableView?
   
   
   // -MARK: - Lifecycle -
@@ -59,6 +61,10 @@ class DescriptionViewController: UIViewController {
     imageView.layer.borderWidth = 2.5
     imageView.layer.borderColor = UIColor(named: "mainColor")!.cgColor
     
+    if pokemon!.isLovely {
+      lovelyButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    }
+    
     nameLabel.text = pokemon?.name
   }
   
@@ -68,11 +74,19 @@ class DescriptionViewController: UIViewController {
   @IBAction func setAsLovelybutton(_ sender: UIButton) {
     if pokemon!.isLovely {
       setAsUnlovelyUseCase.execute(withPokemonName: pokemon!.name)
-      sender.imageView!.image = UIImage(systemName: "heart")
+      mainTableView!.adjustLovelyState(forPokemon: pokemon!)
+      
+      pokemon!.isLovely = false
+      
+      lovelyButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
     else {
       setAsLovelyUseCase.execute(withPokemonName: pokemon!.name)
-      sender.imageView!.image = UIImage(systemName: "heart.fill")
+      mainTableView!.adjustLovelyState(forPokemon: pokemon!)
+
+      pokemon!.isLovely = true
+      
+      lovelyButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
   }
   

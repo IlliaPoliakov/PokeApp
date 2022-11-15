@@ -196,6 +196,7 @@
                     <connections>
                         <outlet property="heightLabel" destination="Znr-gg-9ie" id="ubU-A5-vuO"/>
                         <outlet property="imageView" destination="Ib9-q3-4Bq" id="q1d-xN-fbw"/>
+                        <outlet property="lovelyButton" destination="Vtw-vj-xnD" id="fGA-xG-ofg"/>
                         <outlet property="nameLabel" destination="pIh-Aa-BBe" id="bEO-B7-BHi"/>
                         <outlet property="typesLabel" destination="b1f-f2-aDj" id="XwE-0y-gKm"/>
                         <outlet property="weightLabel" destination="O4A-aB-9J6" id="P4r-0B-pXI"/>
