@@ -2,7 +2,7 @@
 //  PokemonEntity+CoreDataClass.swift
 //  PokeApp
 //
-//  Created by Illia Poliakov on 14.11.22.
+//  Created by Illia Poliakov on 15.11.22.
 //
 //
 

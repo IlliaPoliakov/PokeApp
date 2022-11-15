@@ -17,13 +17,13 @@ class DataBaseDataSource {
   
   // -MARK: - Functions -
   
-  func loadData() -> [PokemonEntity]? {
-    guard var pokemons = try? coreDataStack.managedContext.fetch(PokemonEntity.fetchRequest())
+  func loadData() -> [PokemonGroupEntity]? {
+    guard var pokemonGroups = try? coreDataStack.managedContext.fetch(PokemonGroupEntity.fetchRequest())
     else {
       return nil
     }
     
-    if pokemons.isEmpty {
+    if pokemonGroups.isEmpty {
       return nil
     }
     

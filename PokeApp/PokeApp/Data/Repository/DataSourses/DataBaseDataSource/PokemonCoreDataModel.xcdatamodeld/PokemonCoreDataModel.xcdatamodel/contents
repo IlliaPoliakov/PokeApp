@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G217" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="PokemonEntity" representedClassName="PokemonEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES"/>
-        <attribute name="attribute1" optional="YES"/>
-        <attribute name="attribute2" optional="YES"/>
-        <attribute name="attribute3" optional="YES"/>
-        <attribute name="attribute4" optional="YES"/>
-        <attribute name="attribute5" optional="YES"/>
-        <attribute name="attribute6" optional="YES"/>
-        <attribute name="attribute7" optional="YES"/>
+    <entity name="PokemonEntity" representedClassName="PokemonEntity" syncable="YES">
+        <attribute name="descriptionUrl" attributeType="URI"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="URI"/>
+        <attribute name="isLovely" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="types" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="parentGroup" maxCount="1" deletionRule="Nullify" destinationEntity="PokemonGroupEntity" inverseName="pokemons" inverseEntity="PokemonGroupEntity"/>
+    </entity>
+    <entity name="PokemonGroupEntity" representedClassName="PokemonGroupEntity" syncable="YES">
+        <attribute name="nextUrl" optional="YES" attributeType="URI"/>
+        <attribute name="previousUrl" optional="YES" attributeType="URI"/>
+        <relationship name="pokemons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PokemonEntity" inverseName="parentGroup" inverseEntity="PokemonEntity"/>
     </entity>
 </model>
